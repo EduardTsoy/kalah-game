@@ -1,0 +1,21 @@
+table {
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+td {
+    padding: 2px;
+    border: 1px dashed gray;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    min-width: 50px;
+}
+
+div {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle; /* Removes the extra white space below the baseline */
+}
