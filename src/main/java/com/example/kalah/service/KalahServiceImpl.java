@@ -78,23 +78,23 @@ public class KalahServiceImpl implements KalahService {
             final Consumer<String> setSelfPits;
             final Consumer<String> setOpponentPits;
             if (activePlayer == ActivePlayer.FIRST_PLAYER) {
-                selfPits = convertStringToByteArray(game.getFirstPits());
+                selfPits = KalahService.convertStringToByteArray(game.getFirstPits());
                 setSelfPits = game::setFirstPits;
                 increaseActorStore =
                         (amount) ->
                                 game.setFirstStore((byte) (game.getFirstStore() + amount));
-                opponentPits = convertStringToByteArray(game.getSecondPits());
+                opponentPits = KalahService.convertStringToByteArray(game.getSecondPits());
                 setOpponentPits = game::setSecondPits;
                 increaseOpponentStore =
                         (amount) ->
                                 game.setSecondStore((byte) (game.getSecondStore() + amount));
             } else {
-                selfPits = convertStringToByteArray(game.getSecondPits());
+                selfPits = KalahService.convertStringToByteArray(game.getSecondPits());
                 setSelfPits = game::setSecondPits;
                 increaseActorStore =
                         (amount) ->
                                 game.setSecondStore((byte) (game.getSecondStore() + amount));
-                opponentPits = convertStringToByteArray(game.getFirstPits());
+                opponentPits = KalahService.convertStringToByteArray(game.getFirstPits());
                 setOpponentPits = game::setFirstPits;
                 increaseOpponentStore =
                         (amount) ->
@@ -247,10 +247,10 @@ public class KalahServiceImpl implements KalahService {
                         * game.getInitialNumberOfStonesInEachPit()
                         * 2;
         final int howManyStonesFirstPlayerHasNow =
-                sumPits(convertStringToByteArray(game.getFirstPits()))
+                sumPits(KalahService.convertStringToByteArray(game.getFirstPits()))
                         + game.getFirstStore();
         final int howManyStonesSecondPlayerHasNow =
-                sumPits(convertStringToByteArray(game.getSecondPits()))
+                sumPits(KalahService.convertStringToByteArray(game.getSecondPits()))
                         + game.getSecondStore();
         if (howManyStonesFirstPlayerHasNow + howManyStonesSecondPlayerHasNow != HowManyStonesShouldBeInTheGame) {
             throw new RuntimeException(
