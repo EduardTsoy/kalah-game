@@ -51,27 +51,6 @@ public class KalahControllerIntegrationTest {
     }
 
     @Test
-    public void pingRoot() throws Exception {
-        final ResponseEntity<String> response = restTemplate.exchange(
-                buildUri("/"),
-                HttpMethod.GET,
-                HttpEntity.EMPTY,
-                String.class);
-
-        assertThat(response, notNullValue());
-        System.out.println("\n" + response + "\n");
-        assertThat(response.getStatusCode(), is(HttpStatus.OK));
-
-        final HttpHeaders headers = response.getHeaders();
-        assertThat(headers, notNullValue());
-
-        final List<String> location = headers.get(HttpHeaders.LOCATION);
-        assertThat(location, notNullValue());
-        assertThat(location.size(), greaterThan(0));
-        System.out.println(location.get(0));
-    }
-
-    @Test
     public void pingKalah() throws Exception {
         final ResponseEntity<String> response = restTemplate.exchange(
                 buildUri("/kalah"),

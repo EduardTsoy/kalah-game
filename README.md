@@ -17,3 +17,4 @@ Alternative way to build and run the app:
 
 1. In the project root folder, use the command:
   `mvnw spring-boot:run`
+  (`./mvnw spring-boot:run` for Linux or Mac OS)
